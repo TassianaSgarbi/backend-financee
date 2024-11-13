@@ -18,8 +18,11 @@ class CreateUserService{
 
         const userAlreadyExists = await prismaClient.user.findFirst({
             where: {
-                email: email
-            }
+                OR:[
+                {email: email},
+                {cpf: cpf}
+            ]
+        }
         })
 
         
