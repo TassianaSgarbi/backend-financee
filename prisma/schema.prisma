@@ -58,7 +58,8 @@ model Expense {
   category Category  @relation(fields: [categoryId], references: [id])
 
   userId     String
-  categoryId String
+  categoryId 
+  optionalFields String? 
 
   @@map("expenses")
 }

@@ -8,7 +8,7 @@ interface RequestWithUser extends Request {
 
 class AddExpenseController {
   async handle(req: RequestWithUser, res: Response) {
-    const { description, amount, due_date, category_id } = req.body;
+    const { description, amount, due_date, category_id, observation } = req.body;
 
     // Garantir que user_id está presente
     const user_id = req.user_id;
@@ -25,7 +25,8 @@ class AddExpenseController {
       amount,
       due_date,
       category_id,
-      user_id
+      user_id,
+      observation,
     });
 
     return res.json(expense);

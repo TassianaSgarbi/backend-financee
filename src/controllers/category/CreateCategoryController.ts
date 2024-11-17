@@ -3,6 +3,7 @@ import { CreateCategoryService } from "../../services/category/CreateCategorySer
 
 class CreateCategoryController {
   async handle(req: Request, res: Response) {
+    
     const { name } = req.body;
 
     // Verifica se o user_id está presente
