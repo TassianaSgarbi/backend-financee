@@ -9,13 +9,10 @@ interface RequestWithUser extends Request {
 class DeleteCategoryController{
     async handle(req: RequestWithUser, res: Response){
 
-        const user_id = req.user_id
+    const user_id = req?.user_id as string
 
-        // Verifica se o user_id está presente
-    if (!user_id) {
-        return res.status(400).json({ error: 'User not authenticated' });
-      }
-
+    if(!user_id) return res.status(400).json({ error: 'User not authenticated' });
+    
         const category_id = req.query.category_id as string
 
         const deleteCategory = new DeleteCategoryService()

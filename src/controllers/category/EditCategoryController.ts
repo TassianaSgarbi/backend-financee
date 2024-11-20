@@ -8,18 +8,14 @@ interface RequestWithUser extends Request {
 
 class EditCategoryController{
     async handle(req: RequestWithUser, res: Response){
-        
-        const user_id = req.user_id
-
-          // Verifica se o user_id está presente
-    if (!user_id) {
-        return res.status(400).json({ error: 'User not authenticated' });
-      }
       
+        const user_id = req?.user_id as string
 
-        const category_id = req.query.category_id as string
+        if(!user_id) return res.status(400).json({ error: 'User not authenticated' });
 
-        const { new_name } = req.body
+        const category_id = req?.query?.category_id as string
+
+        const { new_name } = req?.body
 
         const editCategory = new EditCategoryService()
 
