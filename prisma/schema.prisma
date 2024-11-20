@@ -59,7 +59,7 @@ model Expense {
 
   userId     String
   categoryId 
-  optionalFields String? 
+ 
 
   @@map("expenses")
 }
