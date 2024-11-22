@@ -27,6 +27,7 @@ class AddExpenseService{
         const expenseAlreadyExists = await prismaClient.expense.findFirst({
             where: {
                 description: description,
+                due_date: due_date,
                 userId: user_id
             }
         })

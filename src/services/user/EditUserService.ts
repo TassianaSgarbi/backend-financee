@@ -4,19 +4,17 @@ interface UserRequest{
     user_id: string,
     new_name: string,
     new_email: string
-    new_password: string
 }
 
 class EditUserService{
-    async execute({user_id, new_name, new_email,new_password}: UserRequest){
+    async execute({user_id, new_name, new_email}: UserRequest){
 
         const nameOrEmailAlreadyExists = await prismaClient.user.findFirst({
             where: {
                 OR: [
                     { name: new_name },
-                    { email: new_email },
-                    { password: new_password}
-                ]
+                    { email: new_email }
+                    ]
             }
         });
 
@@ -28,11 +26,17 @@ class EditUserService{
             where: {
                 id: user_id,
             },
+
             data: {
                 name: new_name,
                 email: new_email,
-                password:new_password
-            }
+            },
+            
+                select: {
+                    id: true,
+                    name: true,
+                    email: true
+                }
         })
 
         return editUser
