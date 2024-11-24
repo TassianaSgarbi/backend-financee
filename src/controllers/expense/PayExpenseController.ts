@@ -18,11 +18,14 @@ class PayExpenseController{
 
         const expense_id = req.query.expense_id as string
 
+        const {date} = req.body 
+
         const payExpense = new PayExpenseService()
         
         const paidExpense = await payExpense.execute({
             expense_id,
-            user_id
+            user_id,
+            date,
         })
 
         return res.json(paidExpense)
