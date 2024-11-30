@@ -18,6 +18,7 @@ import { PayExpenseController } from './controllers/expense/PayExpenseController
 import { DeleteExpenseController } from './controllers/expense/DeleteExpenseService';
 import { EditUserController } from './controllers/user/EditUserController';
 import { DeleteUserController } from './controllers/user/DeleteUserController';
+import * as insightController from '../src/controllers/chatbot/insightController';
 
 
 const router = Router();
@@ -51,5 +52,7 @@ router.get('/categories', isAuthenticated,  new ListCategoryController().handle)
 router.delete('/delete-category', isAuthenticated, new DeleteCategoryController().handle)
 
 router.put('/category/edit', isAuthenticated, new EditCategoryController().handle)
+
+router.post('/api/insight', isAuthenticated, insightController.gerarInsight);
 
 export { router }
