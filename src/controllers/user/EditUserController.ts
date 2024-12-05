@@ -11,7 +11,7 @@ class EditUserController{
 
         const user_id = req?.user_id as string
 
-        if(!user_id) return res.status(400).json({ error: 'User not authenticated' });
+        // if(!user_id) return res.status(400).json({ error: 'User not authenticated' });
         
         const { new_name, new_email, new_password, confirm_password} = req.body
 
