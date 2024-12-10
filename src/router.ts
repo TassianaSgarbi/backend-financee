@@ -1,11 +1,8 @@
 import { Router } from 'express'
-
 import { CreateUserController } from './controllers/user/CreateUserController';
 import { AuthUserController } from './controllers/user/AuthUserController';
 import { DetailUserController } from './controllers/user/DetailUserController';
-
 import { isAuthenticated } from './middlewares/isAuthenticated';
-
 import { CreateCategoryController } from './controllers/category/CreateCategoryController';
 import { ListCategoryController } from './controllers/category/ListCategoryController';
 import { AddExpenseController } from './controllers/expense/AddExpenseController';
@@ -19,7 +16,6 @@ import { DeleteExpenseController } from './controllers/expense/DeleteExpenseServ
 import { EditUserController } from './controllers/user/EditUserController';
 import { DeleteUserController } from './controllers/user/DeleteUserController';
 import * as insightController from '../src/controllers/chatbot/insightController';
-
 
 const router = Router();
 
